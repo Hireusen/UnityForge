@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+
 /// <summary>
 /// 배열과 리스트를 다루는 유틸리티 클래스입니다.
 /// </summary>
 public static class UArray
 {
-    /// <summary>
-    /// 배열 크기를 재할당합니다.
-    /// 메모리 부족 & int 범위 초과할 경우 실패하며 false를 반환합니다.
-    /// </summary>
     public static bool TryResizeArray<T>(ref T[] targetArray, double multiplySize)
     {
         if (targetArray == null) return false;
@@ -47,7 +44,7 @@ public static class UArray
             array[j] = tmp;
         }
     }
-
+    
     /// <summary>
     /// 피셔 예이츠 셔플로 리스트를 무작위로 섞습니다.
     /// </summary>
