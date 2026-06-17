@@ -3,6 +3,7 @@
 /// <summary>
 /// 플레이어 오브젝트가 키를 입력받아 이동할 수 있도록 합니다.
 /// </summary>
+[RequireComponent(typeof(Rigidbody))]
 public class CPlayerMover : MonoBehaviour
 {
     #region ─────────────────────────▶ 인스펙터 ◀─────────────────────────
@@ -27,6 +28,10 @@ public class CPlayerMover : MonoBehaviour
     #endregion
 
     #region ─────────────────────────▶ 메시지 함수 ◀─────────────────────────
+    private void Awake()
+    {
+        
+    }
     private void Update()
     {
         
