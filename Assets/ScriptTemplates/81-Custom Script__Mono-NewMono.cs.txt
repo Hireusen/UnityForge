@@ -1,18 +1,14 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 /// <summary>
-/// 플레이어 오브젝트가 키를 입력받아 이동할 수 있도록 합니다.
+/// 클래스의 설계 의도입니다.
 /// </summary>
-[RequireComponent(typeof(Rigidbody))]
-public class CPlayerMover : MonoBehaviour
+    #ROOTNAMESPACEBEGIN#
+public class #SCRIPTNAME# : AMono
 {
     #region ─────────────────────────▶ 인스펙터 ◀─────────────────────────
-    [Header("키 입력")] // 이동은 GetAxis
-    [SerializeField] private KeyCode _runKey = KeyCode.LeftShift;
-    [SerializeField] private KeyCode _jumpKey = KeyCode.Space;
-
-    [Header("디버그")]
-    [SerializeField] private bool _log = false;
+    //[Header("주제")]
+    //[SerializeField] private Class _class;
     #endregion
 
     #region ─────────────────────────▶ 내부 변수 ◀─────────────────────────
@@ -28,13 +24,11 @@ public class CPlayerMover : MonoBehaviour
     #endregion
 
     #region ─────────────────────────▶ 메시지 함수 ◀─────────────────────────
-    private void Awake()
-    {
-        
-    }
-    private void Update()
-    {
-        
-    }
+
+    #endregion
+
+    #region ─────────────────────────▶ 중첩 타입 ◀─────────────────────────
+
     #endregion
 }
+#ROOTNAMESPACEEND#

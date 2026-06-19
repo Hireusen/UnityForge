@@ -1,4 +1,6 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.IO;
+using System.Runtime.CompilerServices;
+using System.Text;
 using UnityEngine;
 
 /// <summary>
@@ -79,7 +81,9 @@ public class CTestStructAndClass : MonoBehaviour
             }
         }
         // 결과 출력
-        UTimer.Compare(NAME_STRUCT, result[0], NAME_CLASS, result[1]);
+        if(_dummy != int.MaxValue) {
+            UTimer.Compare(NAME_STRUCT, result[0], NAME_CLASS, result[1]);
+        }
     }
 
     [ContextMenu("구조체의 복사 비용을 비교합니다.")]

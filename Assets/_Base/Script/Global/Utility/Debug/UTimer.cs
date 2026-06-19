@@ -22,7 +22,7 @@ public readonly struct UTimer : IDisposable
     public UTimer(string name, double[] result = null, int index = 0)
     {
         _name = name;
-        _startTime = Stopwatch.GetTimestamp();
+        _startTime = Stopwatch.GetTimestamp(); // 하드웨어 진동 횟수
         _result = result;
         _index = Mathf.Clamp(index, 0, int.MaxValue);
     }
