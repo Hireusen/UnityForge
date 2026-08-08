@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using UnityEngine;
@@ -62,6 +63,17 @@ namespace Project.Default
             UDebug.Print(sb);
             UDebug.Print("── ── ── ── ── ── ── ── ── ── ──");
         }
-    }
 
+        public static void CompareWithDummy<T>(T dummy, string nameA, double elapsedSecondsA, string nameB, double elapsedSecondsB)
+        {
+            if (EqualityComparer<T>.Default.Equals(dummy))
+            {
+                UDebug.Print("이런 우연이? 테스트를 다시 시도해주세요!");
+            }
+            else
+            {
+                Compare(nameA, elapsedSecondsA, nameB, elapsedSecondsB);
+            }
+        }
+    }
 }
