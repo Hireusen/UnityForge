@@ -4,6 +4,7 @@ using UnityEditor.Build.Reporting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using Project.Default;
 
 /// <summary>
 /// 씬이 로드/빌드될 때 오브젝트를 삭제하고 GPU 인스턴싱으로 대체합니다.
