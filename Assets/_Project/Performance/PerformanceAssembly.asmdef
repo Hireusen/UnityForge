@@ -1,0 +1,18 @@
+{
+    "name": "PerformanceAssembly",
+    "rootNamespace": "Project.Performance",
+    "references": [
+        "GUID:7cc4b4538417ba94e871a98953c5b112"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
