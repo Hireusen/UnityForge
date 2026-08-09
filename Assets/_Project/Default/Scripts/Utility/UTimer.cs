@@ -77,8 +77,7 @@ namespace Project.Default
 
             double winTime = (elapsedSecondsA > elapsedSecondsB ? elapsedSecondsB : elapsedSecondsA);
             double loseTime = (elapsedSecondsA > elapsedSecondsB ? elapsedSecondsA : elapsedSecondsB);
-            sb.AppendLine($"{winner}(이)가 {loser}보다 {ratio} 빠릅니다." +
-                $" ({winner}: {winTime:F3}ms / {loser}: {loseTime:F3}ms)");
+            sb.AppendLine($"({winner}: {winTime:F3}ms / {loser}: {loseTime:F3}ms)");
 
             // 결과 출력
             string message = sb.ToString();
