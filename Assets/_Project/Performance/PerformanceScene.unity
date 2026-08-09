@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!224 &94765617 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3842415178662905688, guid: 1e009b9a4562413499d89174fd93c934, type: 3}
-  m_PrefabInstance: {fileID: 4483951836512346574}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &421588683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -581,11 +576,6 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!224 &2078489674 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1632462766706138974, guid: 1e009b9a4562413499d89174fd93c934, type: 3}
-  m_PrefabInstance: {fileID: 4483951836512346574}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4483951836512346574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -595,16 +585,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1632462766706138974, guid: 1e009b9a4562413499d89174fd93c934, type: 3}
-      propertyPath: m_Pivot.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1632462766706138974, guid: 1e009b9a4562413499d89174fd93c934, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1632462766706138974, guid: 1e009b9a4562413499d89174fd93c934, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 3343341730750706308, guid: 1e009b9a4562413499d89174fd93c934, type: 3}
       propertyPath: m_Pivot.x
@@ -690,14 +672,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7375614700992063831, guid: 1e009b9a4562413499d89174fd93c934, type: 3}
-      propertyPath: m_Content
+    - target: {fileID: 5319962783979061907, guid: 1e009b9a4562413499d89174fd93c934, type: 3}
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2078489674}
-    - target: {fileID: 7375614700992063831, guid: 1e009b9a4562413499d89174fd93c934, type: 3}
-      propertyPath: m_Viewport
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162180297326654461, guid: 1e009b9a4562413499d89174fd93c934, type: 3}
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 94765617}
+      objectReference: {fileID: 0}
     - target: {fileID: 9139984887126948961, guid: 1e009b9a4562413499d89174fd93c934, type: 3}
       propertyPath: m_Name
       value: Benchmark Viewer

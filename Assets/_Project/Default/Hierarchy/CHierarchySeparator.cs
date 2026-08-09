@@ -1,6 +1,4 @@
-﻿using UnityEditor;
-
-namespace Project.Default
+﻿namespace Project.Default
 {
     public class CHierarchySeparator : AMono
     {
@@ -8,7 +6,7 @@ namespace Project.Default
         private const string SEPARATOR_NAME = "──────────────";
         private void OnValidate()
         {
-            EditorApplication.delayCall += SetGameObjectName;
+            UnityEditor.EditorApplication.delayCall += SetGameObjectName;
         }
         private void SetGameObjectName()
         {
@@ -19,6 +17,12 @@ namespace Project.Default
                 gameObject.name = SEPARATOR_NAME;
             }
         }
-    }
 #endif
+#if !UNITY_EDITOR
+        private void Awake()
+        {
+            Destroy(gameObject);
+        }
+#endif
+    }
 }

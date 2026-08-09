@@ -51,8 +51,8 @@ namespace Project.Default
         public static void Compare(string nameA, double elapsedSecondsA, string nameB, double elapsedSecondsB)
         {
             const string WINNER_COLOR = "<color=#1E90FF>";
-            const string LOSER_COLOR = "<color=#555555>";
-            const string RATIO_COLOR = "<color=#FF4500>";
+            const string LOSER_COLOR = "<color=#FF4500>";
+            const string RATIO_COLOR = "<color=#FFD700>";
 
             StringBuilder sb = new();
 
