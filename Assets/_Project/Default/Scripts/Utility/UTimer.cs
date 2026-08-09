@@ -18,6 +18,11 @@ namespace Project.Default
         private readonly int _index;
 
         /// <summary>
+        /// 벤치마크 결과를 받을 수 있는 이벤트
+        /// </summary>
+        public static event Action<string> OnBenchmarkComplete;
+
+        /// <summary>
         /// 생성자 : 타이머를 시작합니다.
         /// 결과값을 저장할 배열을 전달할 수 있습니다.
         /// 저장할 인덱스를 지정하지 않으면 0번 인덱스를 사용합니다.
@@ -46,7 +51,7 @@ namespace Project.Default
         public static void Compare(string nameA, double elapsedSecondsA, string nameB, double elapsedSecondsB)
         {
             StringBuilder sb = new();
-            //sb.Append("<color=yellow>");
+
             if (elapsedSecondsA < elapsedSecondsB)
             {
                 sb.Append($"{nameA}(이)가 {nameB}보다 {(elapsedSecondsB / elapsedSecondsA):F2}배 빠릅니다.");
@@ -59,16 +64,21 @@ namespace Project.Default
             {
                 sb.Append($"{nameA}와(과) {nameB}(은)는 동일한 시간을 사용했습니다. ({elapsedSecondsA:F3}초)");
             }
-            //sb.Append("</color>");
-            UDebug.Print(sb);
+
+            string message = sb.ToString();
+            UDebug.Print(message);
             UDebug.Print("── ── ── ── ── ── ── ── ── ── ──");
+
+            OnBenchmarkComplete?.Invoke(message);
         }
 
         public static void CompareWithDummy<T>(T dummy, string nameA, double elapsedSecondsA, string nameB, double elapsedSecondsB)
         {
             if (EqualityComparer<T>.Default.Equals(dummy))
             {
-                UDebug.Print("이런 우연이? 테스트를 다시 시도해주세요!");
+                string message = "이런 우연이? 테스트를 다시 시도해주세요!";
+                UDebug.Print(message);
+                OnBenchmarkComplete?.Invoke(message);
             }
             else
             {

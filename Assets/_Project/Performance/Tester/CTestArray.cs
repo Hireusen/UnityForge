@@ -13,6 +13,7 @@ namespace Project.Performance
         [SerializeField] private int _size = 10000;
 
         private static int _dummy = 0;
+
         // 결과 출력을 위한 상수 이름 정의
         private const string NAME_2D = "2차원 배열 [,]";
         private const string NAME_1D = "1차원 평탄화 배열 []";
@@ -20,7 +21,7 @@ namespace Project.Performance
 
         #region ─────────────────────────▷ 컨텍스트 함수 ◁─────────────────────────
         [ContextMenu("배열 Y-X 순회와 X-Y 순회의 속도를 비교합니다.")]
-        private void TestTraversalOrder()
+        public void TestTraversalOrder() // UI 뷰어 연동을 위해 public 유지
         {
             // 준비
             const string NAME_YX = "YX 순회";
@@ -60,7 +61,7 @@ namespace Project.Performance
         }
 
         [ContextMenu("2차원 배열과 1차원 평탄화 배열의 순회 속도를 비교합니다.")]
-        private void TestDimensionType()
+        public void TestDimensionType()
         {
             // 준비
             int size = _size;
@@ -102,7 +103,7 @@ namespace Project.Performance
         }
 
         [ContextMenu("2차원 배열과 가변 배열의 속도를 비교합니다.")]
-        private void TestJaggedVs2D()
+        public void TestJaggedVs2D()
         {
             // 준비
             const string NAME_JAGGED = "가변 배열 [][]";
@@ -142,7 +143,7 @@ namespace Project.Performance
         }
 
         [ContextMenu("1차원 배열의 For문과 Foreach문 속도를 비교합니다.")]
-        private void TestForVsForeach()
+        public void TestForVsForeach()
         {
             // 준비
             const string NAME_FOR = "For 루프";
