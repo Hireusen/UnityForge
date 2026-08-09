@@ -50,8 +50,13 @@ namespace Project.Default
 
         public static void Compare(string nameA, double elapsedSecondsA, string nameB, double elapsedSecondsB)
         {
+            const string WINNER_COLOR = "<color=#1E90FF>";
+            const string LOSER_COLOR = "<color=#555555>";
+            const string RATIO_COLOR = "<color=#FF4500>";
+
             StringBuilder sb = new();
 
+            // 결과 메시지 조립
             if (elapsedSecondsA < elapsedSecondsB)
             {
                 sb.Append($"{nameA}(이)가 {nameB}보다 {(elapsedSecondsB / elapsedSecondsA):F2}배 빠릅니다.");
@@ -65,6 +70,17 @@ namespace Project.Default
                 sb.Append($"{nameA}와(과) {nameB}(은)는 동일한 시간을 사용했습니다. ({elapsedSecondsA:F3}초)");
             }
 
+            // 상세 메시지 조립
+            string ratio = $"{RATIO_COLOR}{((elapsedSecondsA > elapsedSecondsB) ? (elapsedSecondsA / elapsedSecondsB) : (elapsedSecondsB / elapsedSecondsA)):F2}배</color>";
+            string winner = $"{WINNER_COLOR}{((elapsedSecondsA > elapsedSecondsB) ? nameB : nameA)}</color>";
+            string loser = $"{LOSER_COLOR}{((elapsedSecondsA > elapsedSecondsB) ? nameA : nameB)}</color>";
+
+            double winTime = (elapsedSecondsA > elapsedSecondsB ? elapsedSecondsB : elapsedSecondsA);
+            double loseTime = (elapsedSecondsA > elapsedSecondsB ? elapsedSecondsA : elapsedSecondsB);
+            sb.AppendLine($"{winner}(이)가 {loser}보다 {ratio} 빠릅니다." +
+                $" ({winner}: {winTime:F3}ms / {loser}: {loseTime:F3}ms)");
+
+            // 결과 출력
             string message = sb.ToString();
             UDebug.Print(message);
             UDebug.Print("── ── ── ── ── ── ── ── ── ── ──");
