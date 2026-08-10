@@ -141,41 +141,6 @@ namespace Project.Performance
             // 결과 출력
             UTimer.CompareWithDummy(_dummy, NAME_JAGGED, result[1], NAME_2D, result[0]);
         }
-
-        [ContextMenu("1차원 배열의 For문과 Foreach문 속도를 비교합니다.")]
-        public void TestForVsForeach()
-        {
-            // 준비
-            const string NAME_FOR = "For 루프";
-            const string NAME_FOREACH = "Foreach 루프";
-            int size = _size;
-            int[] array1D = Create1DArray();
-            int totalLength = size * size;
-            double[] result = new double[2];
-
-            // 테스트 시작
-            using (new UTimer(NAME_FOR, result, 0)) // for문
-            {
-                int localDummy = 0;
-                for (int i = 0; i < totalLength; ++i)
-                {
-                    localDummy += array1D[i];
-                }
-                _dummy += localDummy;
-            }
-            using (new UTimer(NAME_FOREACH, result, 1)) // foreach문
-            {
-                int localDummy = 0;
-                foreach (int value in array1D)
-                {
-                    localDummy += value;
-                }
-                _dummy += localDummy;
-            }
-
-            // 결과 출력
-            UTimer.CompareWithDummy(_dummy, NAME_FOR, result[0], NAME_FOREACH, result[1]);
-        }
         #endregion
 
         #region ─────────────────────────▷ 내부 메서드 ◁─────────────────────────
