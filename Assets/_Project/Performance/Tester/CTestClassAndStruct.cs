@@ -31,8 +31,7 @@ namespace Project.Performance
             using (new UTimer(NAME_MEMBER, result, 0)) // 멤버 변수
             {
                 int localDummy = 0;
-                // 의도적으로 멤버 변수 _size에 매번 접근합니다.
-                for (int i = 0; i < _size; ++i)
+                for (int i = 0; i < _size; ++i) // 멤버 변수 그대로
                 {
                     localDummy += _size;
                 }
@@ -42,8 +41,7 @@ namespace Project.Performance
             {
                 int size = _size;
                 int localDummy = 0;
-                // 캐싱된 지역 변수 size에 접근합니다.
-                for (int i = 0; i < size; ++i)
+                for (int i = 0; i < size; ++i) // 캐싱한 지역 변수
                 {
                     localDummy += size;
                 }

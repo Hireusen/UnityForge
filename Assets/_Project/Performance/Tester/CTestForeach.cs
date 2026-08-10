@@ -25,11 +25,12 @@ namespace Project.Performance
         [ContextMenu("1차원 배열의 For문과 Foreach문 속도를 비교합니다.")]
         public void TestArrayForVsForeach()
         {
-            int size = _size;
-            int[] array1D = Create1DArray();
-            int totalLength = size * size;
+            // 준비
+            int totalLength = _size * _size;
+            int[] array1D = UCollectionBuilder.Create1DArray(totalLength);
             double[] result = new double[2];
 
+            // 테스트 시작
             using (new UTimer(NAME_FOR, result, 0))
             {
                 int localDummy = 0;
@@ -49,17 +50,19 @@ namespace Project.Performance
                 _dummy += localDummy;
             }
 
+            // 결과 출력
             UTimer.CompareWithDummy(_dummy, NAME_FOR, result[0], NAME_FOREACH, result[1]);
         }
 
         [ContextMenu("일반 List의 For문과 Foreach문 속도를 비교합니다.")]
         public void TestListForVsForeach()
         {
-            int size = _size;
-            List<int> list = CreateList();
-            int totalLength = size * size;
+            // 준비
+            int totalLength = _size * _size;
+            List<int> list = UCollectionBuilder.CreateList(totalLength);
             double[] result = new double[2];
 
+            // 테스트 시작
             using (new UTimer(NAME_FOR, result, 0)) // for
             {
                 int localDummy = 0;
@@ -79,17 +82,20 @@ namespace Project.Performance
                 _dummy += localDummy;
             }
 
+            // 결과 출력
             UTimer.CompareWithDummy(_dummy, NAME_FOR, result[0], NAME_FOREACH, result[1]);
         }
 
         [ContextMenu("딕셔너리의 For문과 Foreach문 속도를 비교합니다.")]
         public void TestDictionaryForVsForeach()
         {
-            int size = _size;
-            Dictionary<int, int> dict = CreateDictionary();
-            int totalLength = size * size;
+            // 준비
+            int totalLength = _size * _size;
+            Dictionary<int, int> dict = UCollectionBuilder.CreateDictionary(totalLength, _dummy);
             double[] result = new double[2];
 
+
+            // 테스트 시작
             using (new UTimer(NAME_FOR, result, 0)) // 해시
             {
                 int localDummy = 0;
@@ -109,6 +115,7 @@ namespace Project.Performance
                 _dummy += localDummy;
             }
 
+            // 결과 출력
             UTimer.CompareWithDummy(_dummy, NAME_FOR, result[0], NAME_FOREACH, result[1]);
         }
         #endregion
@@ -117,12 +124,15 @@ namespace Project.Performance
         [ContextMenu("딕셔너리의 Key 순회와 Value 순회 속도를 비교합니다.")]
         public void TestDictionaryKeyVsValue()
         {
+            // 준비
             const string NAME_KEY = "Keys 순회";
             const string NAME_VALUE = "Values 순회";
 
-            Dictionary<int, int> dict = CreateDictionary();
+            int totalLength = _size * _size;
+            Dictionary<int, int> dict = UCollectionBuilder.CreateDictionary(totalLength, _dummy);
             double[] result = new double[2];
 
+            // 테스트 시작
             using (new UTimer(NAME_KEY, result, 0)) // Key
             {
                 int localDummy = 0;
@@ -142,18 +152,22 @@ namespace Project.Performance
                 _dummy += localDummy;
             }
 
+            // 결과 출력
             UTimer.CompareWithDummy(_dummy, NAME_KEY, result[0], NAME_VALUE, result[1]);
         }
 
         [ContextMenu("딕셔너리의 Pair 순회와 단일 순회 속도를 비교합니다.")]
         public void TestDictionaryPairVsValue()
         {
+            // 준비
             const string NAME_PAIR = "Pair 전체 순회";
             const string NAME_VALUE = "Values 단일 순회";
 
-            Dictionary<int, int> dict = CreateDictionary();
+            int totalLength = _size * _size;
+            Dictionary<int, int> dict = UCollectionBuilder.CreateDictionary(totalLength, _dummy);
             double[] result = new double[2];
 
+            // 테스트 시작
             using (new UTimer(NAME_PAIR, result, 0))
             {
                 int localDummy = 0;
@@ -173,20 +187,23 @@ namespace Project.Performance
                 _dummy += localDummy;
             }
 
+            // 결과 출력
             UTimer.CompareWithDummy(_dummy, NAME_PAIR, result[0], NAME_VALUE, result[1]);
         }
 
         [ContextMenu("딕셔너리 키 검색 시 단일 키와 튜플 키의 해싱 속도를 비교합니다.")]
         public void TestDictionarySingleVsTupleKey()
         {
+            // 준비
             const string NAME_SINGLE = "단일 키 검색";
             const string NAME_TUPLE = "튜플 키 검색";
 
             int totalLength = _size * _size;
-            Dictionary<int, int> singleDict = CreateDictionary();
-            Dictionary<(int, int), int> tupleDict = CreateTupleDictionary();
+            Dictionary<int, int> singleDict = UCollectionBuilder.CreateDictionary(totalLength, _dummy);
+            Dictionary<(int, int), int> tupleDict = UCollectionBuilder.CreateTupleDictionary(totalLength, _dummy);
             double[] result = new double[2];
 
+            // 테스트 시작
             using (new UTimer(NAME_SINGLE, result, 0)) // int 단일 해싱
             {
                 int localDummy = 0;
@@ -206,55 +223,8 @@ namespace Project.Performance
                 _dummy += localDummy;
             }
 
+            // 결과 출력
             UTimer.CompareWithDummy(_dummy, NAME_SINGLE, result[0], NAME_TUPLE, result[1]);
-        }
-        #endregion
-
-        #region ─────────────────────────▷ 내부 메서드 ◁─────────────────────────
-        private int[] Create1DArray()
-        {
-            int totalSize = _size * _size;
-            int[] arr = new int[totalSize];
-            for (int i = 0; i < totalSize; i++)
-            {
-                arr[i] = 1;
-            }
-            return arr;
-        }
-
-        private List<int> CreateList()
-        {
-            int totalSize = _size * _size;
-            List<int> list = new List<int>(totalSize);
-            for (int i = 0; i < totalSize; i++)
-            {
-                list.Add(1);
-            }
-            return list;
-        }
-
-        private Dictionary<int, int> CreateDictionary()
-        {
-            int totalSize = _size * _size;
-            int amount = _dummy;
-            Dictionary<int, int> dict = new Dictionary<int, int>(totalSize);
-            for (int i = 0; i < totalSize; ++i)
-            {
-                dict.Add(i, amount);
-            }
-            return dict;
-        }
-
-        private Dictionary<(int, int), int> CreateTupleDictionary()
-        {
-            int totalSize = _size * _size;
-            int amount = _dummy;
-            Dictionary<(int, int), int> dict = new Dictionary<(int, int), int>(totalSize);
-            for (int i = 0; i < totalSize; ++i)
-            {
-                dict.Add((i, i), amount);
-            }
-            return dict;
         }
         #endregion
     }

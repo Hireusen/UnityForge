@@ -21,13 +21,13 @@ namespace Project.Performance
 
         #region ─────────────────────────▷ 컨텍스트 함수 ◁─────────────────────────
         [ContextMenu("배열 Y-X 순회와 X-Y 순회의 속도를 비교합니다.")]
-        public void TestTraversalOrder() // UI 뷰어 연동을 위해 public 유지
+        public void TestTraversalOrder()
         {
             // 준비
             const string NAME_YX = "YX 순회";
             const string NAME_XY = "XY 순회";
             int size = _size;
-            int[,] array2D = Create2DArray();
+            int[,] array2D = UCollectionBuilder.Create2DArray(size);
             double[] result = new double[2];
 
             // 테스트 시작
@@ -65,8 +65,9 @@ namespace Project.Performance
         {
             // 준비
             int size = _size;
-            int[,] array2D = Create2DArray();
-            int[] array1D = Create1DArray();
+            int totalSize = size * size;
+            int[,] array2D = UCollectionBuilder.Create2DArray(size);
+            int[] array1D = UCollectionBuilder.Create1DArray(totalSize);
             double[] result = new double[2];
 
             // 테스트 시작
@@ -108,8 +109,8 @@ namespace Project.Performance
             // 준비
             const string NAME_JAGGED = "가변 배열 [][]";
             int size = _size;
-            int[,] array2D = Create2DArray();
-            int[][] arrayJagged = CreateJaggedArray();
+            int[,] array2D = UCollectionBuilder.Create2DArray(size);
+            int[][] arrayJagged = UCollectionBuilder.CreateJaggedArray(size);
             double[] result = new double[2];
 
             // 테스트 시작
@@ -140,51 +141,6 @@ namespace Project.Performance
 
             // 결과 출력
             UTimer.CompareWithDummy(_dummy, NAME_JAGGED, result[1], NAME_2D, result[0]);
-        }
-        #endregion
-
-        #region ─────────────────────────▷ 내부 메서드 ◁─────────────────────────
-        private int[,] Create2DArray()
-        {
-            int size = _size;
-            int[,] arr = new int[size, size];
-            for (int y = 0; y < size; y++)
-            {
-                for (int x = 0; x < size; x++)
-                {
-                    arr[y, x] = 1;
-                }
-            }
-
-            return arr;
-        }
-
-        private int[] Create1DArray()
-        {
-            int size = _size;
-            int totalSize = size * size;
-            int[] arr = new int[totalSize];
-            for (int i = 0; i < totalSize; i++)
-            {
-                arr[i] = 1;
-            }
-
-            return arr;
-        }
-
-        private int[][] CreateJaggedArray()
-        {
-            int size = _size;
-            int[][] arr = new int[size][];
-            for (int y = 0; y < size; y++)
-            {
-                arr[y] = new int[size];
-                for (int x = 0; x < size; x++)
-                {
-                    arr[y][x] = 1;
-                }
-            }
-            return arr;
         }
         #endregion
     }
