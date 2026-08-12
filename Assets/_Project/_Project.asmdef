@@ -1,11 +1,7 @@
 {
-    "name": "PerformanceAssembly",
-    "rootNamespace": "Project.Performance",
-    "references": [
-        "GUID:4f09f3e06d8df6e4cb0f93f6d9b895a5",
-        "GUID:7cc4b4538417ba94e871a98953c5b112",
-        "GUID:6055be8ebefd69e48b49212b09b47b2f"
-    ],
+    "name": "_Project",
+    "rootNamespace": "Project",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
