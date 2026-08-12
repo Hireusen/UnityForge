@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using StorageHelper = Borodar.RainbowFolders.TexturesStorageHelper<Borodar.RainbowFolders.ProjectIcon>;
+using StorageHelper = Plugins.RainbowFolders.TexturesStorageHelper<Plugins.RainbowFolders.ProjectIcon>;
 
-namespace Borodar.RainbowFolders
+namespace Plugins.RainbowFolders
 {
     public static class ProjectIconsArchiveFree
     {

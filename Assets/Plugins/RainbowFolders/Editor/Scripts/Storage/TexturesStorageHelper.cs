@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
-namespace Borodar.RainbowFolders
+namespace Plugins.RainbowFolders
 {
     public static class TexturesStorageHelper<T>
     {

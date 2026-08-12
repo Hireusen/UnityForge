@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using StorageHelper = Borodar.RainbowFolders.TexturesStorageHelper<Borodar.RainbowFolders.ProjectBackground>;
+using StorageHelper = Plugins.RainbowFolders.TexturesStorageHelper<Plugins.RainbowFolders.ProjectBackground>;
 
-namespace Borodar.RainbowFolders
+namespace Plugins.RainbowFolders
 {
     public static class ProjectBackgroundsStorage
     {

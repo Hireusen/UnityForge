@@ -4,29 +4,29 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Borodar.RainbowFolders
+namespace Plugins.RainbowFolders
 {
     public static class ProjectPreferences
     {
         private const float PREF_LABEL_WIDTH = 150f;
 
-        private const string RULESET_PKEY = "Borodar.RainbowFolders.Ruleset.";
+        private const string RULESET_PKEY = "Plugins.RainbowFolders.Ruleset.";
         private const string RULESET_DEFAULT = "Assets/Plugins/RainbowAssets/RainbowFolders/Editor/Data/RainbowFoldersRuleset.asset";
         private const string RULESET_HINT = "The ruleset that is currently used. You could have multiple rulesets in your project and switch between them using this option.";
 
-        private const string EDIT_MODIFIER_PKEY = "Borodar.RainbowFolders.EditMod.";
+        private const string EDIT_MODIFIER_PKEY = "Plugins.RainbowFolders.EditMod.";
         private const string EDIT_MODIFIER_HINT = "Modifier key that is used to show configuration dialogue when clicking on a folder icon.";
         private const EventModifiers EDIT_MODIFIER_DEFAULT = EventModifiers.Alt;
 
-        private const string DRAG_MODIFIER_PKEY = "Borodar.RainbowFolders.DragMod.";
+        private const string DRAG_MODIFIER_PKEY = "Plugins.RainbowFolders.DragMod.";
         private const string DRAG_MODIFIER_HINT = "Modifier key that is used to drag configuration dialogue.";
         private const EventModifiers DRAG_MODIFIER_DEFAULT = EventModifiers.Shift;
         
-        private const string PROJECT_TREE_PKEY = "Borodar.RainbowFolders.ShowProjectTree.";
+        private const string PROJECT_TREE_PKEY = "Plugins.RainbowFolders.ShowProjectTree.";
         private const string PROJECT_TREE_HINT = "Change this setting to show/hide the \"branches\" in the project window.";
         private const bool PROJECT_TREE_DEFAULT = true;
         
-        private const string ROW_SHADING_PKEY = "Borodar.RainbowFolders.RowShading.";
+        private const string ROW_SHADING_PKEY = "Plugins.RainbowFolders.RowShading.";
         private const string ROW_SHADING_HINT = "Change this settings to enable/disable row shading in the project window.";
         private const bool ROW_SHADING_DEFAULT = true;
 

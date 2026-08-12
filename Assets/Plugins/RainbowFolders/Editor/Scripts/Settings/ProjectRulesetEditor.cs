@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using Borodar.RainbowFolders.RList;
+using Plugins.RainbowFolders.RList;
 using UnityEditor;
 using UnityEngine;
-using static Borodar.RainbowFolders.ProjectRule.KeyType;
+using static Plugins.RainbowFolders.ProjectRule.KeyType;
 
-namespace Borodar.RainbowFolders
+namespace Plugins.RainbowFolders
 {
     [CustomEditor(typeof (ProjectRuleset))]
     public class ProjectRulesetEditor : Editor

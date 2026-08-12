@@ -1,4 +1,4 @@
-﻿namespace Borodar.RainbowFolders
+﻿namespace Plugins.RainbowFolders
 {
     internal sealed class ProjectRulesetWrapper
     {

@@ -1,7 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 
-namespace Borodar.RainbowFolders.RList {
+namespace Plugins.RainbowFolders.RList {
 
 	public class ReorderableAttribute : PropertyAttribute {
 

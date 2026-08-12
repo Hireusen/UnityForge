@@ -1,11 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-namespace Borodar.RainbowFolders.RList {
+namespace Plugins.RainbowFolders.RList {
 
 	public class ReorderableList {
 

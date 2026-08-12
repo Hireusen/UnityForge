@@ -1,4 +1,4 @@
-﻿namespace Borodar.RainbowFolders
+﻿namespace Plugins.RainbowFolders
 {
     public enum ProjectIcon
     {

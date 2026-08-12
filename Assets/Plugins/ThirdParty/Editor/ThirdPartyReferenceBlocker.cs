@@ -1,8 +1,7 @@
-﻿#if UNITY_EDITOR
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
-namespace Project.Default
+namespace Plugins.ThirdParty
 {
     public class ThirdPartyReferenceBlocker : AssetModificationProcessor
     {
@@ -29,7 +28,7 @@ namespace Project.Default
                     if (dependency != path && dependency.StartsWith(THIRD_PARTY_PATH))
                     {
                         hasViolation = true;
-                        violationMessage += $"ㄴ'{path}'가 '{dependency}'를 참조하고 있습니다.\n";
+                        violationMessage += $"\nㄴ'{path}'가 '{dependency}'를 참조하고 있습니다.";
                     }
                 }
             }
@@ -37,11 +36,11 @@ namespace Project.Default
             // 위반 발생
             if (hasViolation)
             {
-                string errorMessage = "🚨 ThirdParty 에셋 참조 에러 🚨\n\n" +
-                                      "ThirdParty 폴더의 에셋은 직접 사용할 수 없습니다.\n" +
-                                      "반드시 프로젝트 폴더로 복사한 후 사용해주세요.\n\n" +
+                string errorMessage = "🚨 ThirdParty 에셋 참조 에러 🚨" +
+                                      "\nThirdParty 폴더의 에셋은 직접 사용할 수 없습니다." +
+                                      "\n반드시 프로젝트 폴더로 복사한 후 사용해주세요." +
                                       violationMessage;
-                UDebug.Print(errorMessage, LogType.Error);
+                Debug.LogWarning(errorMessage);
                 EditorUtility.DisplayDialog("저장 실패 (외부 에셋 참조됨)", errorMessage, "확인");
             }
 
@@ -49,4 +48,3 @@ namespace Project.Default
         }
     }
 }
-#endif

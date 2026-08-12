@@ -1,9 +1,9 @@
 ﻿using System;
 using UnityEditor;
 using UnityEngine;
-using KeyType = Borodar.RainbowFolders.ProjectRule.KeyType;
+using KeyType = Plugins.RainbowFolders.ProjectRule.KeyType;
 
-namespace Borodar.RainbowFolders
+namespace Plugins.RainbowFolders
 {
     [CustomPropertyDrawer(typeof(ProjectRule))]
     public class ProjectRuleDrawer : PropertyDrawer

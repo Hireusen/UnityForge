@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Project.Default
+namespace Plugins.ThirdParty
 {
     public static class ThirdPartyToggle
     {
@@ -20,7 +20,7 @@ namespace Project.Default
             // 일반 폴더가 존재하는가?
             if (!Directory.Exists(normalFullPath))
             {
-                UDebug.Print($"활성화된 서드파티 폴더를 찾을 수 없습니다.", LogType.Warning);
+                Debug.LogWarning("[ThirdParty] 활성화된 서드파티 폴더를 찾을 수 없습니다.");
                 return;
             }
 
@@ -29,7 +29,7 @@ namespace Project.Default
             string hiddenMetaFullPath = metaFullPath + "~";
             if (!File.Exists(metaFullPath))
             {
-                UDebug.Print($"활성화된 메타 파일을 찾을 수 없습니다.", LogType.Warning);
+                Debug.LogWarning("[ThirdParty] 활성화된 메타 파일을 찾을 수 없습니다.");
                 return;
             }
 
@@ -37,7 +37,7 @@ namespace Project.Default
             Directory.Move(normalFullPath, hiddenFullPath);
             File.Move(metaFullPath, hiddenMetaFullPath);
             AssetDatabase.Refresh();
-            UDebug.Print($"서드파티 폴더를 숨겼습니다.");
+            Debug.Log("[ThirdParty] 서드파티 폴더를 숨겼습니다.");
         }
 
         [MenuItem("Tools/서드파티/활성화")]
@@ -48,7 +48,7 @@ namespace Project.Default
             // 숨김 폴더가 존재하는가?
             if (!Directory.Exists(hiddenFullPath))
             {
-                UDebug.Print($"숨겨진 서드파티 폴더를 찾을 수 없습니다.", LogType.Warning);
+                Debug.LogWarning("[ThirdParty] 숨겨진 서드파티 폴더를 찾을 수 없습니다.");
                 return;
             }
 
@@ -57,7 +57,7 @@ namespace Project.Default
             string hiddenMetaFullPath = metaFullPath + "~";
             if (!File.Exists(hiddenMetaFullPath))
             {
-                UDebug.Print($"숨겨진 메타 파일을 찾을 수 없습니다.", LogType.Warning);
+                Debug.LogWarning("[ThirdParty] 숨겨진 메타 파일을 찾을 수 없습니다.");
                 return;
             }
 
@@ -65,7 +65,7 @@ namespace Project.Default
             Directory.Move(hiddenFullPath, normalFullPath);
             File.Move(hiddenMetaFullPath, metaFullPath);
             AssetDatabase.Refresh();
-            UDebug.Print($"서드파티 폴더를 활성화했습니다.");
+            Debug.Log("[ThirdParty] 서드파티 폴더를 활성화했습니다.");
         }
     }
 }

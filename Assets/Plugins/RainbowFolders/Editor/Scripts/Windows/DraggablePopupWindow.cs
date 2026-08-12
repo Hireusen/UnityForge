@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Borodar.RainbowFolders
+namespace Plugins.RainbowFolders
 {
     public abstract class DraggablePopupWindow : EditorWindow
     {

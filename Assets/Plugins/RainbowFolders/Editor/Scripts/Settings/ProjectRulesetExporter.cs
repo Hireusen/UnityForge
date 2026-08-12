@@ -2,9 +2,9 @@
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
-using static Borodar.RainbowFolders.RFLogger;
+using static Plugins.RainbowFolders.RFLogger;
 
-namespace Borodar.RainbowFolders
+namespace Plugins.RainbowFolders
 {
     public static class ProjectRulesetExporter
     {

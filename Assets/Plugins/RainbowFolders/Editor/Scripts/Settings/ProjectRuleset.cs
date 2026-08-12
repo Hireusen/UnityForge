@@ -6,10 +6,10 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
-using static Borodar.RainbowFolders.RFLogger;
-using KeyType = Borodar.RainbowFolders.ProjectRule.KeyType;
+using static Plugins.RainbowFolders.RFLogger;
+using KeyType = Plugins.RainbowFolders.ProjectRule.KeyType;
 
-namespace Borodar.RainbowFolders
+namespace Plugins.RainbowFolders
 {
     [HelpURL(AssetInfo.HELP_URL)]
 
