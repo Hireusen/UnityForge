@@ -27,7 +27,7 @@ namespace Plugins.Rename
         #endregion
 
         #region ─────────────────────────▷ 윈도우 ◁─────────────────────────
-        [MenuItem("Tools/이름 변경")]
+        [MenuItem("Tools/이름 변경/치환")]
         public static void ShowWindow()
         {
             RenameAsset window = GetWindow<RenameAsset>("이름 일괄 변경");
