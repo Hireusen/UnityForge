@@ -3,7 +3,7 @@
     public class CHierarchySeparator : AMono
     {
 #if UNITY_EDITOR
-        private const string SEPARATOR_NAME = "──────────────";
+        private const string SEPARATOR_NAME = "────────────────────────────";
         private void OnValidate()
         {
             UnityEditor.EditorApplication.delayCall += SetGameObjectName;
