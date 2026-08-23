@@ -25,8 +25,8 @@ namespace Plugins.Rename
         public static void ShowWindow()
         {
             SequentialRenameAsset window = GetWindow<SequentialRenameAsset>("순차적 이름 변경");
-            window.minSize = new Vector2(320f, 300f);
-            window.maxSize = new Vector2(320f, 300f);
+            window.minSize = new Vector2(320f, 240f);
+            window.maxSize = new Vector2(320f, 240f);
             window.Show();
         }
 
