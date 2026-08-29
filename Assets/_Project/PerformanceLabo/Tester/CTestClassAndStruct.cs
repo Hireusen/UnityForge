@@ -5,7 +5,7 @@ using Project.Default;
 namespace Project.Performance
 {
     /// <summary>
-    /// 구조체와 클래스의 차이를 테스트하는 컴포넌트입니다.
+    /// 구조체와 클래스 성능 차이 테스트
     /// </summary>
     public class CTestClassAndStruct : AMono
     {

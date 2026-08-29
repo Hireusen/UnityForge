@@ -1,10 +1,11 @@
 ﻿using Project.Default;
 using UnityEngine;
+using System.Buffers;
 
 namespace Project.Performance
 {
     /// <summary>
-    /// 배열의 순회 방식과 구조에 따른 성능 차이를 테스트하는 컴포넌트입니다.
+    /// 배열 성능 테스트
     /// </summary>
     public class CTestArray : AMono
     {
@@ -20,6 +21,39 @@ namespace Project.Performance
         #endregion
 
         #region ─────────────────────────▷ 컨텍스트 함수 ◁─────────────────────────
+        [ContextMenu("배열 생성과 배열 대여 속도를 비교합니다.")]
+        public void TestNewArrayAndRent()
+        {
+            // 준비
+            const string NAME_NEW = "배열 생성";
+            const string NAME_POOL = "배열 대여";
+            const int LOOP_COUNT = 10000;
+            int size = _size;
+            double[] result = new double[2];
+
+            // 테스트 시작
+            using (new UTimer(NAME_NEW, result, 0)) // 새로 할당
+            {
+                for(int i = 0; i < LOOP_COUNT; ++i)
+                {
+                    int[] array1D = UCollectionBuilder.Create1DArray(size);
+                    
+                }
+            }
+            using (new UTimer(NAME_POOL, result, 1)) // 대여
+            {
+                for (int i = 0; i < LOOP_COUNT; ++i)
+                {
+                    int[] array1D = ArrayPool<int>.Shared.Rent(size);
+                    
+                    ArrayPool<int>.Shared.Return(array1D);
+                }
+            }
+
+            // 결과 출력
+            UTimer.CompareWithDummy(_dummy, NAME_NEW, result[0], NAME_POOL, result[1]);
+        }
+
         [ContextMenu("배열 Y-X 순회와 X-Y 순회의 속도를 비교합니다.")]
         public void TestTraversalOrder()
         {
@@ -58,6 +92,45 @@ namespace Project.Performance
 
             // 결과 출력
             UTimer.CompareWithDummy(_dummy, NAME_YX, result[0], NAME_XY, result[1]);
+        }
+
+        [ContextMenu("일차원 배열과 가변 배열의 순회 속도를 비교합니다.")]
+        public void Test1DAndJagged()
+        {
+            // 준비
+            const string NAME_1D = "일차원 배열";
+            const string NAME_JAGGED = "가변 배열 순회";
+            int size = _size;
+            int totalSize = size * size;
+            int[] array1D = UCollectionBuilder.Create1DArray(totalSize);
+            int[][] arrayJagged = UCollectionBuilder.CreateJaggedArray(size);
+            double[] result = new double[2];
+
+            // 테스트 시작
+            using (new UTimer(NAME_1D, result, 0)) // 일차원 배열
+            {
+                int localDummy = 0;
+                for(int i = 0; i < totalSize; ++i)
+                {
+                    localDummy += array1D[i];
+                }
+                _dummy += localDummy;
+            }
+            using (new UTimer(NAME_JAGGED, result, 1)) // 가변 배열
+            {
+                int localDummy = 0;
+                for (int y = 0; y < size; ++y)
+                {
+                    for (int x = 0; x < size; ++x)
+                    {
+                        localDummy += arrayJagged[y][x];
+                    }
+                }
+                _dummy += localDummy;
+            }
+
+            // 결과 출력
+            UTimer.CompareWithDummy(_dummy, NAME_1D, result[0], NAME_JAGGED, result[1]);
         }
 
         [ContextMenu("2차원 배열과 1차원 평탄화 배열의 순회 속도를 비교합니다.")]

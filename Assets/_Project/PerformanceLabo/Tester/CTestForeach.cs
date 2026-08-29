@@ -5,8 +5,7 @@ using Project.Default;
 namespace Project.Performance
 {
     /// <summary>
-    /// 다양한 컬렉션에서의 For문과 Foreach문, 
-    /// 그리고 접근 방식에 따른 탐색 성능 차이를 테스트하는 컴포넌트입니다.
+    /// For문과 Foreach문 성능 차이 테스트
     /// </summary>
     public class CTestForeach : AMono
     {
