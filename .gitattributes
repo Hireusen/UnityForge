@@ -164,8 +164,10 @@ Packages/packages-lock.json linguist-generated
 *.reason                lfs
 *.rns                   lfs
 
-# Spine export file for Unity
-*.skel.bytes            lfs
+# Exceptions for large generated assets
+LightingData.asset      lfs
+*Terrain*.asset         lfs
+*TerrainData*.asset     lfs
 
-# Exceptions for .asset files such as lightning pre-baking
-LightingData.asset     binary
+# Unity APV & Binary Data
+*.bytes                 lfs
