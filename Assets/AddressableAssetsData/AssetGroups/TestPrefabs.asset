@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: TestPrefabs
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: TestPrefabs
+  m_GUID: 708713ae438e8e342a3a00f01a0d5ed6
+  m_SerializeEntries:
+  - m_GUID: 3cf0653d3579a0a488e8389ee5702d04
+    m_Address: Assets/_Project/AddressableLabo/Prefab/Cylinder.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8b7f0aa2c383ca24da5f7a3602e9cc22
+    m_Address: Assets/_Project/AddressableLabo/Prefab/Sphere.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1dbe2de160b7424dbe0ce03389e1ce2
+    m_Address: Assets/_Project/AddressableLabo/Prefab/Plane.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a806105781077714f950cd6b47af54ed
+    m_Address: Assets/_Project/AddressableLabo/Prefab/Cube.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ea439b79a3205414cb81cb9160175307
+    m_Address: Assets/_Project/AddressableLabo/Prefab/Capsule.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: ab18559ee16c3e94ca23d3dcbf84b1fd, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 94448c60766afb148a14f64f257b6a50, type: 2}
+    - {fileID: 11400000, guid: 71568127d5fbe244cbc28eb536b284e0, type: 2}

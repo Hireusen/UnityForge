@@ -12,5 +12,6 @@ EditorBuildSettings:
     path: Assets/_Project/PerformanceLabo/PerformanceScene.unity
     guid: b4311c41271376e4989e18914a7bc991
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: bd98126f62dd59f4dac5f6880056b881, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
