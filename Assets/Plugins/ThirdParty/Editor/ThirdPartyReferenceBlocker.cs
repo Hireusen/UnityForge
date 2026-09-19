@@ -7,10 +7,33 @@ namespace Plugins.ThirdParty
     {
         // 제한할 폴더 경로
         private const string THIRD_PARTY_PATH = "Assets/ThirdParty";
+        private const string MENU_PATH = "Tools/서드파티/참조 방어";
+        private static bool IsEnable // 유니티 꺼도 유지
+        {
+            get => EditorPrefs.GetBool("ThirdPartyReferenceBlocker.IsEnable", true);
+            set => EditorPrefs.SetBool("ThirdPartyReferenceBlocker.IsEnable", value);
+        }
+
+        [MenuItem(MENU_PATH)]
+        public static void ToggleReferenceBlocker()
+        {
+            IsEnable = !IsEnable;
+            string status = IsEnable ? "활성화" : "비활성화";
+            Debug.Log($"서드파티 참조 방어를 {status}되었습니다.");
+        }
+
+        [MenuItem(MENU_PATH, true)]
+        public static bool ToggleReferenceBlockerValidate()
+        {
+            Menu.SetChecked(MENU_PATH, IsEnable);
+            return true;
+        }
 
         // 에셋이 저장되기 직전에 호출되는 유니티 내장 콜백 함수
         public static string[] OnWillSaveAssets(string[] paths)
         {
+            if (!IsEnable) return paths;
+
             bool hasViolation = false;
             string violationMessage = "";
 
@@ -22,8 +45,9 @@ namespace Plugins.ThirdParty
                 // 저장 대상이 의존하는 에셋 경로 추출
                 string[] dependencies = AssetDatabase.GetDependencies(path, false);
 
-                foreach (string dependency in dependencies)
+                for (int i = 0; i < dependencies.Length; ++i)
                 {
+                    string dependency = dependencies[i];
                     // 자기 자신이 아니고, ThirdParty 폴더를 참조하고 있다면
                     if (dependency != path && dependency.StartsWith(THIRD_PARTY_PATH))
                     {
