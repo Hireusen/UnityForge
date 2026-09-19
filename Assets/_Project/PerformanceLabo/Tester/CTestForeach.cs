@@ -2,7 +2,7 @@
 using UnityEngine;
 using Project.Default;
 
-namespace Project.Performance
+namespace Project.PerformanceLabo
 {
     /// <summary>
     /// For문과 Foreach문 성능 차이 테스트

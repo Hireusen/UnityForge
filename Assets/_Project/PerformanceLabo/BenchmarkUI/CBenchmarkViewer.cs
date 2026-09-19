@@ -5,7 +5,7 @@ using TMPro;
 using Project.Default;
 using System.Collections;
 
-namespace Project.Performance
+namespace Project.PerformanceLabo
 {
     /// <summary>
     /// UTimer의 벤치마크 결과를 화면에 표시합니다.

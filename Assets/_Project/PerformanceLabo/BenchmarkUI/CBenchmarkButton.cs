@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Reflection;
 
-namespace Project.Performance
+namespace Project.PerformanceLabo
 {
     /// <summary>
     /// 빌드 환경에서 UTimer의 벤치마크 결과를 UI에 표시합니다.

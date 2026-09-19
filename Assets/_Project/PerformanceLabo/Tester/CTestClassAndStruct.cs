@@ -2,7 +2,7 @@
 using UnityEngine;
 using Project.Default;
 
-namespace Project.Performance
+namespace Project.PerformanceLabo
 {
     /// <summary>
     /// 구조체와 클래스 성능 차이 테스트

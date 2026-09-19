@@ -1,6 +1,6 @@
 {
-    "name": "_Project.Performance",
-    "rootNamespace": "Project.Performance",
+    "name": "_Project.PerformanceLabo",
+    "rootNamespace": "Project.PerformanceLabo",
     "references": [
         "GUID:4f09f3e06d8df6e4cb0f93f6d9b895a5",
         "GUID:7cc4b4538417ba94e871a98953c5b112",

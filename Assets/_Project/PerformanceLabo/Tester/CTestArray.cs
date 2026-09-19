@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Buffers;
 
-namespace Project.Performance
+namespace Project.PerformanceLabo
 {
     /// <summary>
     /// 배열 성능 테스트

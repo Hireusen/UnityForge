@@ -1,7 +1,7 @@
 ﻿using Project.Default;
 using UnityEngine;
 
-namespace Project.Performance
+namespace Project.PerformanceLabo
 {
     /// <summary>
     /// 기본 연산자 성능 차이 테스트

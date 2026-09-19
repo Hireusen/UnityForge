@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Project.Performance
+namespace Project.PerformanceLabo
 {
     /// <summary>
     /// 벤치마크 테스트에 필요한 컬렉션 데이터를 생성하는 유틸리티 클래스입니다.
