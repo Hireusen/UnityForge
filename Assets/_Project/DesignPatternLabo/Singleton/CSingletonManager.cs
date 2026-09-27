@@ -12,7 +12,7 @@ namespace Project.DesignPatternLabo
         public void AddScore(int amount)
         {
             _score += amount;
-            Debug.Log($"정적 매니저를 통해 점수를 {amount}점 추가했습니다.");
+            Debug.Log($"싱글톤 매니저를 통해 점수를 {amount}점 추가했습니다.");
         }
 
         public int GetScore() => _score;
@@ -21,15 +21,13 @@ namespace Project.DesignPatternLabo
         #region ─────────────────────────▷ 메시지 함수 ◁─────────────────────────
         private void Awake()
         {
-            if (Instance == null)
+            if (Instance == null && Instance != this)
             {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
+                Destroy(this);
+                return;
             }
-            else
-            {
-                Destroy(gameObject);
-            }
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
 
         private void OnDestroy()
