@@ -345,10 +345,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f120d012ab04348a449ddd27786b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: _Project.UniTaskLabo::Project.UniTaskLabo.CSinForwardMover
-  _key: 116
-  _target: {fileID: 1082130307}
-  _moveTime: 1
-  _speed: 0.2
+  _key: 113
+  _target: {fileID: 1082130308}
+  _dashDistance: 5
+  _moveTime: 0.4
 --- !u!1001 &299559600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -693,9 +693,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1082130307 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6849761032080879554, guid: 51348e5d19652c14ebd6229c79750b61, type: 3}
+--- !u!54 &1082130308 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1650764000317694241, guid: 51348e5d19652c14ebd6229c79750b61, type: 3}
   m_PrefabInstance: {fileID: 2731710837429440178}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1086057716
